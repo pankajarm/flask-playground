@@ -36,7 +36,7 @@ class Item(Resource):
     )
 
     # get jwt_required so it is required to authenticate before any Item api work
-    # @jwt_required()
+    @jwt_required()
     # override get method
     def get(self, name):
         # pythonic way
@@ -52,7 +52,7 @@ class Item(Resource):
         return {'item': item}, 200 if item else 404
 
     # get jwt_required so it is required to authenticate before any Item api work
-    # @jwt_required()
+    @jwt_required()
     # override post method
     def post(self, name):
         # check if same item exist already
@@ -69,14 +69,16 @@ class Item(Resource):
         items.append(item)
         return item, 201 # we can also return 202, which mean accepted instead of created, usually when it long time to create object
 
-
+    # get jwt_required so it is required to authenticate before any Item api work
+    @jwt_required()
     # override delete method
     def delete(self, name):
         global items
         items = list(filter(lambda x: x['name'] != name, items))
         return {'message': 'Item deleted'}
 
-
+    # get jwt_required so it is required to authenticate before any Item api work
+    @jwt_required()
     # override put method
     def put(self, name):
         # get data

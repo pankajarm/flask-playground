@@ -1,4 +1,5 @@
-# user class
+
+# User class
 
 class User():
 

@@ -45,6 +45,7 @@ userid_mapping = {u.id: u for u in users}
 # now let's make authenticate function
 
 def authenticate(username, password):
+    #list based data
     user = username_mapping.get(username, None)
     if user and safe_str_cmp(user.password, password):
         return user
@@ -52,4 +53,5 @@ def authenticate(username, password):
 # create identity function
 def identity(payload):
     user_id = payload['identity']
+    # list based data
     return userid_mapping.get(user_id, None)
