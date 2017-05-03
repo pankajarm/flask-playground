@@ -4,6 +4,7 @@ from flask_restful import Resource, Api, reqparse
 from flask_jwt import JWT, jwt_required
 
 from security import authenticate, identity
+from user import UserRegister
 
 # Create the Flask App object
 app = Flask(__name__)
@@ -112,6 +113,7 @@ class Items(Resource):
 # Now add all Resource class to api with end point location
 api.add_resource(Item, '/item/<string:name>') #http://localhost:5000/item/iphone
 api.add_resource(Items, '/items') #http://localhost:5000/items
+api.add_resource(UserRegister, '/register') #http://localhost:5000/register
 
 # Now, run the whole app on flask
 app.run(port=5000, debug=True) # default port is 5000 but you can change it to any free avaialble port on your system

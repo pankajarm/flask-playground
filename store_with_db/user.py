@@ -1,4 +1,5 @@
 import sqlite3
+from flask_restful import Resource, reqparse
 
 # User class
 class User():
@@ -65,3 +66,9 @@ class User():
         # close db
         connection.close()
         return user
+
+class UserRegister(Resource):
+
+    # create post method which will register user by going to endpoint /register
+    def post(self, arg):
+        pass
